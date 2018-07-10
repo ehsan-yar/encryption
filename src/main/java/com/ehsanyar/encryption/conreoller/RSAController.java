@@ -2,6 +2,7 @@ package com.ehsanyar.encryption.conreoller;
 
 
 import com.ehsanyar.encryption.service.RSAEncryption;
+import com.ehsanyar.encryption.service.RSAUpdateKeysScheduler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,11 +12,13 @@ public class RSAController {
 
 
     private final RSAEncryption rsaEncryption;
+    private final RSAUpdateKeysScheduler RSAUpdateKeysScheduler;
 
 
     @Autowired
-    public RSAController(RSAEncryption rsaEncryption) {
+    public RSAController(RSAEncryption rsaEncryption, RSAUpdateKeysScheduler RSAUpdateKeysScheduler) {
         this.rsaEncryption = rsaEncryption;
+        this.RSAUpdateKeysScheduler = RSAUpdateKeysScheduler;
     }
 
 
@@ -35,6 +38,13 @@ public class RSAController {
     @GetMapping("decrypt")
     public String decryptMessage(@RequestHeader("message") String encryptedMessage){
         return rsaEncryption.decrypt(encryptedMessage);
+    }
+
+
+    @GetMapping("setUpdateKeysDuration")
+    public String updateKeys(@RequestHeader("duration") long time){
+        RSAUpdateKeysScheduler.setTime(time);
+        return String.format("Time changed to : %d second", time);
     }
 
 }

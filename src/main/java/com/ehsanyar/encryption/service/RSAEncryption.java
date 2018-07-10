@@ -13,9 +13,12 @@ import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.RSAPrivateKeySpec;
 import java.security.spec.RSAPublicKeySpec;
 import java.security.spec.X509EncodedKeySpec;
+import java.util.logging.Logger;
 
 @Service
 public class RSAEncryption {
+
+    private static final Logger LOGGER = Logger.getLogger(RSAEncryption.class.getSimpleName());
 
     private static final String RSA_ECB_PKCS1_PADDING = "RSA/ECB/PKCS1Padding";
 
@@ -32,11 +35,12 @@ public class RSAEncryption {
     }
 
 //    @Scheduled(cron = "0 0 0 ? * FRI") // Every Friday at 00:00 AM
-    @Scheduled(cron = "*/60 * * * * *") // every 60 second
+//    @Scheduled(cron = "*/60 * * * * *") // every 60 second
     public void initiateAndUpdate(){
         KeyPair keyPair = generateKeyPair(KEY_SIZE_2048);
         this.privateKey = keyPair.getPrivate();
         this.publicKey = keyPair.getPublic();
+        LOGGER.info("Initiate KeyPair");
     }
 
 
