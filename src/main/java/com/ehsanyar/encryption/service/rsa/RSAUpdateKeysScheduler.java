@@ -1,4 +1,4 @@
-package com.ehsanyar.encryption.service;
+package com.ehsanyar.encryption.service.rsa;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;

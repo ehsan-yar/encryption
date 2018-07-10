@@ -1,8 +1,8 @@
 package com.ehsanyar.encryption.conreoller;
 
 
-import com.ehsanyar.encryption.service.RSAEncryption;
-import com.ehsanyar.encryption.service.RSAUpdateKeysScheduler;
+import com.ehsanyar.encryption.service.rsa.RSAEncryption;
+import com.ehsanyar.encryption.service.rsa.RSAUpdateKeysScheduler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

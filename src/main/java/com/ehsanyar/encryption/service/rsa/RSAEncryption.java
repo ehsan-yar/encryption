@@ -1,9 +1,8 @@
-package com.ehsanyar.encryption.service;
+package com.ehsanyar.encryption.service.rsa;
 
 
 
 import org.apache.commons.codec.binary.Base64;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.Cipher;
