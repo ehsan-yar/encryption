@@ -91,7 +91,7 @@ public class EncryptionApplicationTests {
 
 		if (algorithm.toLowerCase().equals("des")) {
 			encryptedPayload = dukpt.encryptDes(key, payloadString.getBytes("UTF-8"));
-			decryptedPayload = dukpt.decryptDes(key, encryptedPayload;
+			decryptedPayload = dukpt.decryptDes(key, encryptedPayload);
 		}
 
 		if (algorithm.toLowerCase().equals("3des")) {
