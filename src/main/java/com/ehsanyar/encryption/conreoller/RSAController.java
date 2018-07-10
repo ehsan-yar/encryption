@@ -25,16 +25,16 @@ public class RSAController {
 
     }
 
-    @GetMapping("encrypt/{message}")
-    public String encryptMessage(@RequestHeader("key") String publikKey ,@PathVariable("message") String message){
+    @GetMapping("encrypt")
+    public String encryptMessage(@RequestHeader("key") String publikKey ,@RequestHeader("message") String message){
 
         return rsaEncryption.encryptAsString(message , publikKey);
 
     }
 
-    @GetMapping("decrypt/{message}")
-    public String decryptMessage(@PathVariable("message") String encryptedMessage){
-        return rsaEncryption.encryptAsString(encryptedMessage);
+    @GetMapping("decrypt")
+    public String decryptMessage(@RequestHeader("message") String encryptedMessage){
+        return rsaEncryption.decrypt(encryptedMessage);
     }
 
 }
