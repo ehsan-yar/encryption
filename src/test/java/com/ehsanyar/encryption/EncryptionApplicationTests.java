@@ -85,18 +85,18 @@ public class EncryptionApplicationTests {
 		byte[] key = dukpt.computeKey(bdk, ksn);
 
 		if (algorithm.toLowerCase().equals("aes")) {
-			encryptedPayload = dukpt.encryptAes(key, payloadString.getBytes("UTF-8"), true);
-			decryptedPayload = dukpt.decryptAes(key, encryptedPayload, true);
+			encryptedPayload = dukpt.encryptAes(key, payloadString.getBytes("UTF-8"));
+			decryptedPayload = dukpt.decryptAes(key, encryptedPayload);
 		}
 
 		if (algorithm.toLowerCase().equals("des")) {
-			encryptedPayload = dukpt.encryptDes(key, payloadString.getBytes("UTF-8"), true);
+			encryptedPayload = dukpt.encryptDes(key, payloadString.getBytes("UTF-8"));
 			decryptedPayload = dukpt.decryptDes(key, encryptedPayload, true);
 		}
 
 		if (algorithm.toLowerCase().equals("3des")) {
-			encryptedPayload = dukpt.encryptTripleDes(key, payloadString.getBytes("UTF-8"), true);
-			decryptedPayload = dukpt.decryptTripleDes(key, encryptedPayload, true);
+			encryptedPayload = dukpt.encryptTripleDes(key, payloadString.getBytes("UTF-8"));
+			decryptedPayload = dukpt.decryptTripleDes(key, encryptedPayload);
 		}
 
 		assert decryptedPayload != null;
